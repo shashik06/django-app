@@ -1,0 +1,50 @@
+ {% for a in postData %}
+                <div class="container m-1">
+                    <div class="card">
+                        <div class="card-header head text-white">
+                            <h5>{{a.title}}</h5>
+                        </div>
+                        <div class="card-body con ">
+                            <p>{{a.content}}</p>
+                            <a href="#" class="btn btn-primary">ReadMore</a>
+                        </div>
+                    </div>
+                </div>
+            {%endfor%}
+
+
+
+
+             <div class="row m-1">
+      {% for a in postData %}
+          <div class="col-md-6 ">
+            <div class="card m-2">
+              <div class="card-header head">
+                <h5>{{a.title}}</h5>
+                <p>{{a.id}}</p>
+              </div>
+              <div class="card-body">
+                <p>{{a.content|slice:":50"}}{{'.....'}}</p>
+                <a href="/post/{{a.id}}" class="btn bg-primary">Read More</a>
+              </div>
+            </div>
+          </div>
+      {%endfor%}
+    </div>
+
+
+
+    def post(request,id):
+    post = Post.objects.get(id = id)
+    data = Post.objects.all()
+    print(data)
+    return render(request,'post.html',{'post':post})
+
+{% for a in posts%}
+            <h5>{{a.title}}</h5>
+            <img src="/media/{{a.image}}" />
+            <p>Author :{{a.author}}</p>
+            <p>Date :{{a.date}}</p>
+            <p>Tags: {{a.tags}}</p>
+            <small>{{a.content}}</small>
+        {%endfor%}

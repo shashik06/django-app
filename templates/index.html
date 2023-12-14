@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+  
+<div class="row">
+  <div class="col-md-3">
+
+  </div>
+  <div class="col-md-6">
+    {% for a in postData reversed%}
+    <div class="card m-2">
+      <div class="card-header head">
+        <h5>{{a.title}}</h5>
+      </div>
+      <div class="card-body">
+        <p>{{a.content|slice:":100"}}{{'.....'}}</p>
+        <a href="/post/{{a.id}}" class="btn bg-primary">Read More</a>
+      
+      </div>
+    </div>
+    {%endfor%}
+  </div>
+  <div class="col-md-3">
+    <!----side bar-->
+      </div>
+  </div>
+</div>
+
+
+{% endblock content %}

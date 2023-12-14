@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container-fluid ">
+<div class="row ">
+    <div class="col-md-3">
+
+    </div>
+    <div class="col-md-6">
+        <div class="container ">
+            <h4 class="m-3">{{post.title}}</h4>
+            <p class="m-3 ">{{post.content}}</p>
+        </div>
+    </div>
+    <div class="col-md-3">
+        
+    </div>
+</div>
+<div class="row ">
+    <div class="col-md-3">
+
+    </div>
+    <div class="col-md-6">
+        <div class="container mt-5border ">
+            <h4 class="text-danger text-center">Just IN </h4>
+            <hr>
+            {% for a in data%}
+                <a href="/post/{{a.id}}"><i class="fa-solid fa-link"></i> {{a.title}}</a>
+                <hr>
+            {%endfor%}
+        </div>
+    </div>
+    <div class="col-md-3">
+        
+    </div>
+</div>
+</div>
+
+
+{% endblock content %}
